@@ -11,11 +11,18 @@ class App extends React.Component {
       repos: []
     }
 
+    this.search = this.search.bind(this)
   }
 
   search (term) {
     console.log(`${term} was searched`);
     // TODO
+    $.post('http://localhost:1128/repos/',term, (err)=>{
+      if (err){
+        console.log(err)
+      }
+      console.log('success!')
+    })
   }
 
   render () {
