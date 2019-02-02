@@ -1,5 +1,6 @@
 const request = require('request');
 const config = require('../config.js');
+const $ = require('jquery')
 
 let getReposByUsername = (callback) => {
   // TODO - Use the request module to request repos for a specific
@@ -9,7 +10,7 @@ let getReposByUsername = (callback) => {
   // but you'll have to fill in the URL
   
     let options = {
-      url: `https://api.github.com/repos/${username}/`,
+      url: `https://api.github.com/repos/alvintan626/`, //${username}/
       headers: {
         'User-Agent': 'request',
         'Authorization': `token ${config.TOKEN}`

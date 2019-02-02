@@ -6,7 +6,6 @@ const github = require('../helpers/github.js')
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/repos', function (req, res) {
-  console.log()
   // TODO - your code here!
   // This route should take the github username provided
   // and get the repo information from the github API, then
@@ -17,8 +16,12 @@ app.post('/repos', function (req, res) {
     if(err){
       console.log(err);
       return
+      
     }
-    db.query(`insert ${data} into tables`)
+
+    console.log(data)
+
+    // db.query(`insert ${data} into tables`)
     res.status(200)
     res.send()
   })
