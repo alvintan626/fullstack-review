@@ -17,14 +17,32 @@ let getReposByUsername = (username, callback) => {
     };
 
     request(options, (error, response, body)=> {
-      console.log(options.url +'---'+ options.headers['Authorization'])
-      console.log(response.statusCode)
-      console.log(body)
 
       if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
-        console.log(info)
-        callback(null,info)
+
+        //get length of repos, cap at 25
+        var data = [];
+        for (var i = 0; i < info.length; i++){
+          if (info.length === 25){
+            break;
+          }
+          data.push({
+            name: info[i].name,
+            description: info[i].description,
+            url: info[i].html_url,
+            forks: info[i].forks_count,
+            id: info[i].id
+          })
+        }
+      
+        // console.log(info[2])
+        // console.log(info[2].name)
+        // console.log(info[2].description)
+        // console.log(info[2].html_url)
+        // console.log(info[2].forks_count)
+        // console.log(info[2].id)
+        callback(null,data)
       }
     })
 

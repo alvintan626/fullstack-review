@@ -22,6 +22,7 @@ app.post('/repos', function (req, res) {
       return;
     } else {
       console.log(data)
+      console.log('we got the data to the server!')
       // db.query(`insert ${data} into tables`)
     // res.status(200)
     // res.send()
