@@ -17,6 +17,7 @@ let getReposByUsername = (callback) => {
     };
 
   $.get(options, (err,data)=>{
+    console.log('the data looks like this ', data)
     if(err){
       callback(err)
     } else{
