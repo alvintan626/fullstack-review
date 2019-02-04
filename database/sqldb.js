@@ -21,4 +21,17 @@ const postdb = (insert)=>{
     })
 }
 
+const getdb = (callback)=>{
+    db.query('select * from githubInfo;', (err,data)=>{
+        if (err){
+            callback(err);
+            return;
+        }   else{
+            callback(null,data[0])
+        }
+
+    })
+}
+
 module.exports.postdb = postdb;
+module.exports.getdb = getdb;
